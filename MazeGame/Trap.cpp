@@ -5,7 +5,7 @@ private:
     std::string name;
     char symbol;
     int damage;
-
+    int aa;
 public:
 
     Trap(const std::string& trapName, char trapSymbol, int trapDamage)
