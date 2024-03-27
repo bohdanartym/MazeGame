@@ -1,3 +1,5 @@
+#include <iostream> 
+
 class Labirynth {
 private:
     std::vector<std::vector<int>> matrix;

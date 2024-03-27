@@ -1,3 +1,5 @@
+#include <iostream> 
+
 class Hero {
 private:
     std::string name;

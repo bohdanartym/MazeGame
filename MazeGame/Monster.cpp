@@ -1,3 +1,5 @@
+#include <iostream> 
+
 class Monster {
 private:
     std::string name;

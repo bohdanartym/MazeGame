@@ -1,3 +1,7 @@
+
+#include <iostream> 
+#include "Hero.cpp"
+
 class Armor {
 private:
     std::string name;

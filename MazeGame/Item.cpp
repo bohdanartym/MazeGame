@@ -1,3 +1,5 @@
+#include <iostream> 
+
 class Item {
 private:
     std::vector<Armor> armors;

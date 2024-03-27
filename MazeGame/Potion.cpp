@@ -1,3 +1,5 @@
+#include <iostream> 
+
 class Potion {
 private:
     std::string name;

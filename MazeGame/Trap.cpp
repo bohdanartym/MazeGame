@@ -1,3 +1,5 @@
+#include <iostream> 
+
 class Trap {
 private:
     std::string name;

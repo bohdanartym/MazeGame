@@ -1,3 +1,9 @@
+#include <iostream> 
+#include "Hero.cpp"
+#include "Labirynth.cpp"
+#include "GameElement.cpp"
+
+
 class Game {
 private:
     Labirynth& labirynth;
