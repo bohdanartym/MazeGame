@@ -1,5 +1,5 @@
 #include <iostream> 
-
+#include "Hero.cpp"
 class Trap {
 private:
     std::string name;
