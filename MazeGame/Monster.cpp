@@ -1,5 +1,6 @@
 #include <iostream> 
-
+#include "HealthBar.cpp"
+#include "Hero.cpp"
 class Monster {
 private:
     std::string name;
@@ -21,13 +22,13 @@ public:
     void takeDamage(int damageTaken) {
         int damageReceived = std::max(0, damageTaken - armor);
         currentHealth -= damageReceived;
-        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+        //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
         std::cout << "Monster " << name << " Health: ";
         for (int i = 0; i < currentHealth; ++i) {
             std::cout << "#";
         }
         std::cout << std::endl;
-        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 
         checkDeath();
     }

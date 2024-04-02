@@ -1,4 +1,7 @@
 #include <iostream> 
+#include <vector> 
+#include "Armor.cpp"
+#include "Potion.cpp"
 
 class Item {
 private:

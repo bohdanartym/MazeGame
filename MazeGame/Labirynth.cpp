@@ -1,4 +1,9 @@
 #include <iostream> 
+#include "Hero.cpp"
+#include "Monster.cpp"
+#include "Trap.cpp"
+#include "Item.cpp"
+#include <vector>
 
 class Labirynth {
 private:

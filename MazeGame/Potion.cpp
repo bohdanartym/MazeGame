@@ -1,4 +1,5 @@
 #include <iostream> 
+#include "Hero.cpp"
 
 class Potion {
 private:

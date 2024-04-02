@@ -1,6 +1,4 @@
 #include <iostream> 
-
-
 class HealthBar {
 private:
     int length;

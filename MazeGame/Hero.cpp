@@ -1,5 +1,7 @@
 #include <iostream> 
-
+#include <vector> 
+#include "Item.cpp"
+#include "HealthBar.cpp"
 class Hero {
 private:
     std::string name;
@@ -27,10 +29,7 @@ public:
         levelUp();
     }
 
-    void
-        giveD
-        ive
-        Damage(Hero& enemy) {
+    void Damage(Hero& enemy) {
         int totalDamage = damage + calculateTotalDamageBoost();
         enemy.takeDamage(totalDamage);
         std::cout << name << " dealt " << totalDamage << " damage to " << enemy.name << "." << std::endl;
