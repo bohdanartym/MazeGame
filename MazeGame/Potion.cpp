@@ -1,21 +1,18 @@
-#include <iostream> 
-#include "Hero.cpp"
+#include "Potion1.h"
+#include <iostream>
+using namespace std;
 
-class Potion {
-private:
-    std::string name;
-    char symbol;
-    int health;
+Potion::Potion(const std::string& potionName, char potionSymbol, int healthGain)
+    : name(potionName), symbol(potionSymbol), health(healthGain) {}
 
-public:
-    Potion(const std::string& potionName, char potionSymbol, int healthGain)
-        : name(potionName), symbol(potionSymbol), health(healthGain) {}
+Potion::~Potion() {
+    std::cout << "Potion " << name << " has been consumed." << std::endl;
+}
 
-    ~Potion() {
-        std::cout << "Potion " << name << " has been consumed." << std::endl;
-    }
-    void giveHealth(Hero& target) {
-        target.heal(health);
-        std::cout << target.getName() << " gained " << health << " health points from " << name << "." << std::endl;
-    }
-};
+char Potion::getSymbol() const {
+    return symbol;
+}
+
+int Potion::getHealth() const {
+    return health;
+}

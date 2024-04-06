@@ -4,7 +4,7 @@
 #include "GameElement.cpp"
 #include <vector>
 
-int main() {
+int main678() {
    
     Hero hero("Player", 100, 20);
 

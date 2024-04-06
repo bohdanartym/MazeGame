@@ -139,6 +139,18 @@
     <ClCompile Include="Potion.cpp" />
     <ClCompile Include="Trap.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Armor.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Game.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\GameElement.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\HealthBar.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Hero.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Item.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Labirynth.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Monster.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Potion.h" />
+    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Trap.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

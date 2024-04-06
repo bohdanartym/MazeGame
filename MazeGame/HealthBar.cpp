@@ -1,20 +1,16 @@
-#include <iostream> 
-class HealthBar {
-private:
-    int length;
-    int maxLength;
+#include "HealthBar1.h"
+#include <iostream>
+#include <algorithm>
 
-public:
-    HealthBar(int maxLen) : length(maxLen), maxLength(maxLen) {}
+HealthBar::HealthBar(int maxLen) : length(maxLen), maxLength(maxLen) {}
 
-    void update(int currentHealth, int maxHealth, int damageTaken) {
-        length = static_cast<int>((static_cast<double>(currentHealth) / maxHealth) * maxLength);
-        length = std::max(0, length - damageTaken);
+void HealthBar::update(int currentHealth, int maxHealth, int damageTaken) {
+    length = static_cast<int>((static_cast<double>(currentHealth) / maxHealth) * maxLength);
+    length = std::max(0, length - damageTaken);
+}
+
+void HealthBar::display() const {
+    for (int i = 0; i < length; ++i) {
+        std::cout << "#";
     }
-
-    void display() const {
-        for (int i = 0; i < length; ++i) {
-            std::cout << "#";
-        }
-    }
-};
+}

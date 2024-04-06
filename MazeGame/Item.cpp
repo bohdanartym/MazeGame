@@ -1,27 +1,19 @@
-#include <iostream> 
-#include <vector> 
-#include "Armor.cpp"
-#include "Potion.cpp"
+#include "Item1.h"
 
-class Item {
-private:
-    std::vector<Armor> armors;
-    std::vector<Potion> potions;
+Item::Item() {}
 
-public:
-    Item() {}
-    void addItem(const Armor& armor) {
-        armors.push_back(armor);
-    }
+void Item::addItem(const Armor& armor) {
+    armors.push_back(armor);
+}
 
-    void addItem(const Potion& potion) {
-        potions.push_back(potion);
-    }
-    const std::vector<Armor>& getArmors() const {
-        return armors;
-    }
+void Item::addItem(const Potion& potion) {
+    potions.push_back(potion);
+}
 
-    const std::vector<Potion>& getPotions() const {
-        return potions;
-    }
-};
+const std::vector<Armor>& Item::getArmors() const {
+    return armors;
+}
+
+const std::vector<Potion>& Item::getPotions() const {
+    return potions;
+}
