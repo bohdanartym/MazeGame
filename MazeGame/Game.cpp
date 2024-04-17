@@ -4,6 +4,7 @@
 #include <iostream>
 #include <queue>
 #include <limits>
+#include "Labirynth1.h"
 using namespace std;
 
 Game::Game(Labirynth& lab, Hero& h) : labirynth(lab), hero(h) {}

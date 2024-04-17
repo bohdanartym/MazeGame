@@ -1,14 +1,15 @@
 #pragma once
+#include "Item1.h"
 #include "Armor1.h"
 #include "HealthBar1.h"
-
+using namespace std;
 class Hero {
 private:
-    std::string name;
+    string name;
     int health;
     int currentHealth;
     int damage;
-    std::vector<Item> items;
+    vector<Item> items;
     int armor;
     int experience;
     int level;

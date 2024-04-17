@@ -1,5 +1,8 @@
 #pragma once
+#include <iostream>
 #include "Hero1.h"
+#include "Item1.h"
+#include "Armor1.h"
 #include <string>
 using namespace std;
 
@@ -8,19 +11,19 @@ Hero::Hero(const std::string& heroName, int baseHealth, int baseDamage)
     damage(baseDamage), armor(0), experience(0), level(1), healthBar(baseHealth) {}
 
 Hero::~Hero() {
-    std::cout << "Hero " << name << " has been defeated!" << std::endl;
+    cout << "Hero " << name << " has been defeated!" << endl;
 }
 
 void Hero::gainExperience(int exp) {
     experience += exp;
-    cout << name << " gained " << exp << " experience points." << std::endl;
+    cout << name << " gained " << exp << " experience points." << endl;
     levelUp();
 }
 
 void Hero::giveDamage(Hero& enemy) {
     int totalDamage = damage + calculateTotalDamageBoost();
     enemy.takeDamage(totalDamage);
-    std::cout << name << " dealt " << totalDamage << " damage to " << enemy.name << "." << std::endl;
+    cout << name << " dealt " << totalDamage << " damage to " << enemy.name << "." << endl;
 }
 
 void Hero::displayHealthBar() const {
@@ -68,7 +71,7 @@ void Hero::levelUp() {
 
 void Hero::equipItem(const Item& newItem) {
     items.push_back(newItem);
-    std::cout << name << " equipped " << newItem.name << "." << std::endl;
+    std::cout << name << " equipped " << newItem.getName() << "." << std::endl;
 }
 
 int Hero::calculateTotalDamageBoost() const {
