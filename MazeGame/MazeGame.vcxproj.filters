@@ -50,34 +50,34 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\HealthBar.h">
+    <ClInclude Include="Armor1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Game.h">
+    <ClInclude Include="Game1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\GameElement.h">
+    <ClInclude Include="GameElement1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Armor.h">
+    <ClInclude Include="HealthBar1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Hero.h">
+    <ClInclude Include="Hero1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Item.h">
+    <ClInclude Include="Item1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Labirynth.h">
+    <ClInclude Include="Labirynth1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Monster.h">
+    <ClInclude Include="Monster1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Potion.h">
+    <ClInclude Include="Potion1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Trap.h">
+    <ClInclude Include="Trap1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

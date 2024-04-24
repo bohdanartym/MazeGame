@@ -1,6 +1,7 @@
 #pragma once
 #include "Hero1.h"
 #include <string>
+#include <iostream>
 using namespace std;
 
 Hero::Hero(const std::string& heroName, int baseHealth, int baseDamage)
@@ -8,7 +9,7 @@ Hero::Hero(const std::string& heroName, int baseHealth, int baseDamage)
     damage(baseDamage), armor(0), experience(0), level(1), healthBar(baseHealth) {}
 
 Hero::~Hero() {
-    std::cout << "Hero " << name << " has been defeated!" << std::endl;
+    cout << "Hero " << name << " has been defeated!" << std::endl;
 }
 
 void Hero::gainExperience(int exp) {
