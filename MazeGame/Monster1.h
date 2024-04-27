@@ -1,26 +1,19 @@
 #pragma once
-#include <iostream>
 #include <string>
-#include "Hero1.h"
-#include "HealthBar1.h"
+#include "Item1.h"
 
-class Monster {
+class Monster : public Item {
 private:
-    std::string name;
     int health;
-    int currentHealth;
     int damage;
-    int armor;
-    HealthBar healthBar;
 
 public:
-    Monster(const std::string& monsterName, int baseHealth, int baseDamage, int baseArmor);
+    Monster(const std::string& monsterName, int monsterHealth, int monsterDamage);
     ~Monster();
-
-    void takeDamage(int damageTaken);
-    void regenerate();
-    std::string getName() const;
-    void setArmor(int newArmor);
-    void checkDeath() const;
-    void giveDamage(Hero& target);
+    int getHealth() const;
+    int getDamage() const;
+    ElementType getType() override {
+        return ElementType::Monster;
+    }
 };
+

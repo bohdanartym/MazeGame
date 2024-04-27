@@ -1,37 +1,29 @@
 #pragma once
-#include <iostream>
-#include <functional>
-#include "Hero.cpp"
+#include "Hero1.h"
 #include "Monster1.h"
-#include "Trap.cpp"
-#include "Item1.h"
-using namespace std;
-enum class ElementType {
-    Wall,
-    Passage,
-    Potion,
-    Trap,
-    Monster,
-    Hero
-};
+#include "Trap1.h"
+#include "Potion1.h"
+
 struct GameElement {
-    Hero* _hero;
+    Hero* hero;
     Monster* monster;
     Trap* trap;
-    Item* item;
+    Potion* potion;
+    int weight;
 
-    GameElement(Hero* hero) : _hero(hero), monster(nullptr), trap(nullptr), item(nullptr) {}
-    GameElement(Monster* monster) : _hero(nullptr), monster(monster), trap(nullptr), item(nullptr) {}
-    GameElement(Trap* trap) : _hero(nullptr), monster(nullptr), trap(trap), item(nullptr) {}
-    GameElement(Item* item) : _hero(nullptr), monster(nullptr), trap(nullptr), item(item) {}
+    GameElement(Hero* h) : hero(h), monster(nullptr), trap(nullptr), potion(nullptr) {}
+    GameElement(Monster* m) : hero(nullptr), monster(m), trap(nullptr), potion(nullptr) {}
+    GameElement(Trap* t) : hero(nullptr), monster(nullptr), trap(t), potion(nullptr) {}
+    GameElement(Potion* p) : hero(nullptr), monster(nullptr), trap(nullptr), potion(p) {}
 
-    // Add a method to get the type of the element
     ElementType getType() const {
-        if (_hero != nullptr) return ElementType::Hero;
+        if (hero != nullptr) return ElementType::Hero;
         if (monster != nullptr) return ElementType::Monster;
         if (trap != nullptr) return ElementType::Trap;
-        if (item != nullptr) return ElementType::Potion; // Assuming item represents a potion
+        if (potion != nullptr) return ElementType::Potion;
         return ElementType::Wall; // Default case
     }
+    int getWeight() const {
+        return weight;
+    }
 };
-

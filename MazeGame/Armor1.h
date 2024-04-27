@@ -1,15 +1,18 @@
 #pragma once
 #include <string>
+#include "Item1.h"
+#include "../Project1/ElementType.h"
 
-class Armor {
+class Armor : public Item {
 private:
-    std::string name;
-    char symbol;
     int armor;
 
 public:
     Armor(const std::string& armorName, char armorSymbol, int armorValue);
     ~Armor();
-    char getSymbol() const;
     int getArmor() const;
+    ElementType getType() override {
+        return ElementType::Armor;
+    };
 };
+

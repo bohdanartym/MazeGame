@@ -2,14 +2,15 @@
 #include <string>
 #include "Item1.h"
 
-class Potion : Item {
+class Potion : public Item {
 private:
-
     int health;
 
 public:
     Potion(const std::string& potionName, char potionSymbol, int healthGain);
     ~Potion();
-    char getSymbol() const;
     int getHealth() const;
+    ElementType getType() override {
+        return ElementType::Potion;
+    }
 };

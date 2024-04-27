@@ -1,17 +1,14 @@
-#pragma once
-#include <iostream>
 #include "Armor1.h"
-using namespace std;
+#include <iostream>
 
-Armor::Armor(const std::string& armorName, char armorSymbol, int armorValue)
-    : name(armorName), symbol(armorSymbol), armor(armorValue) {}
-
-Armor::~Armor() {
-    cout << "Armor " << name << " has been equipped." << std::endl;
+Armor::Armor(const std::string& armorName, char armorSymbol, int armorValue) {
+    name = armorName;
+    symbol = armorSymbol;
+    armor = armorValue;
 }
 
-char Armor::getSymbol() const {
-    return symbol;
+Armor::~Armor() {
+    std::cout << "Armor " << name << " has been equipped." << std::endl;
 }
 
 int Armor::getArmor() const {

@@ -1,17 +1,16 @@
 #pragma once
 #include <string>
-#include "Hero1.h"
+#include "Item1.h"
 
-class Trap {
+class Trap : public Item {
 private:
-    std::string name;
-    char symbol;
     int damage;
 
 public:
     Trap(const std::string& trapName, char trapSymbol, int trapDamage);
     ~Trap();
-    char getSymbol() const;
-    void getDamageFromTrap(Hero& target);
+    int getDamage() const;
+    ElementType getType() override {
+        return ElementType::Trap;
+    }
 };
-

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2f61c6c4-977d-462c-b68b-9ec71498ab10}</ProjectGuid>
-    <RootNamespace>MazeGame</RootNamespace>
+    <ProjectGuid>{b21a987f-78fe-43f1-a75b-d5067c44b90d}</ProjectGuid>
+    <RootNamespace>Project1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,43 +127,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Armor.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameElement.cpp" />
-    <ClCompile Include="HealthBar.cpp" />
-    <ClCompile Include="Hero.cpp" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Labirynth.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Monster.cpp" />
-    <ClCompile Include="Potion.cpp" />
-    <ClCompile Include="Trap.cpp" />
+    <ClInclude Include="..\MazeGame\Armor1.h" />
+    <ClInclude Include="..\MazeGame\Game1.h" />
+    <ClInclude Include="..\MazeGame\GameElement1.h" />
+    <ClInclude Include="..\MazeGame\HealthBar1.h" />
+    <ClInclude Include="..\MazeGame\Hero1.h" />
+    <ClInclude Include="..\MazeGame\Item1.h" />
+    <ClInclude Include="..\MazeGame\Labirynth1.h" />
+    <ClInclude Include="..\MazeGame\Monster1.h" />
+    <ClInclude Include="..\MazeGame\Potion1.h" />
+    <ClInclude Include="..\MazeGame\Trap1.h" />
+    <ClInclude Include="ElementType.h" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Armor.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Game.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\GameElement.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\HealthBar.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Hero.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Item.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Labirynth.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Monster.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Potion.h" />
-    <ClInclude Include="..\..\Game_Labirynth\Game_Labirynth\Trap.h" />
-    <ClInclude Include="Armo2.h" />
->>>>>>> 86b4849bef11c83d7be471550cce43b3311c3542
-    <ClInclude Include="Armor1.h" />
-    <ClInclude Include="Game1.h" />
-    <ClInclude Include="GameElement1.h" />
-    <ClInclude Include="HealthBar1.h" />
-    <ClInclude Include="Hero1.h" />
-    <ClInclude Include="Item1.h" />
-    <ClInclude Include="Labirynth1.h" />
-    <ClInclude Include="Monster1.h" />
-    <ClInclude Include="Potion1.h" />
-    <ClInclude Include="Trap1.h" />
+    <ClCompile Include="..\MazeGame\Armor.cpp" />
+    <ClCompile Include="..\MazeGame\Game.cpp" />
+    <ClCompile Include="..\MazeGame\HealthBar.cpp" />
+    <ClCompile Include="..\MazeGame\Hero.cpp" />
+    <ClCompile Include="..\MazeGame\Item.cpp" />
+    <ClCompile Include="..\MazeGame\Labirynth.cpp" />
+    <ClCompile Include="..\MazeGame\main.cpp" />
+    <ClCompile Include="..\MazeGame\Monster.cpp" />
+    <ClCompile Include="..\MazeGame\Potion.cpp" />
+    <ClCompile Include="..\MazeGame\Trap.cpp" />
+    <ClCompile Include="ElementType.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

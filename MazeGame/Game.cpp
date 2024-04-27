@@ -1,51 +1,41 @@
 #include "Game1.h"
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
 #include <queue>
 #include <limits>
+
 using namespace std;
 
 Game::Game(Labirynth& lab, Hero& h) : labirynth(lab), hero(h) {}
 
 void Game::move(char direction) {
-    int heroRow = -1;
-    int heroCol = -1;
+    pair<int, int> heroPos = hero.getPosition();
 
-    // Find the current position of the hero in the labyrinth
-    for (int i = 0; i < labirynth.getSize(); ++i) {
-        for (int j = 0; j < labirynth.getRowSize(i); ++j) {
-            if (labirynth.getElement(i, j).getType() == ElementType::Hero) {
-                heroRow = i;
-                heroCol = j;
-                break;
-            }
-        }
-        if (heroRow != -1) {
-            break;
-        }
-    }
+    int heroRow = heroPos.first;
+    int heroCol = heroPos.second;
 
-    // Update the position based on the movement direction
     switch (direction) {
     case 'W':
         if (heroRow > 0 && labirynth.getElement(heroRow - 1, heroCol).getType() != ElementType::Wall) {
-            std::swap(labirynth.getElement(heroRow, heroCol), labirynth.getElement(heroRow - 1, heroCol));
+            labirynth.moveElement(heroRow, heroCol, heroRow - 1, heroCol);
+            hero.setPosition(heroRow - 1, heroCol);
         }
         break;
     case 'A':
         if (heroCol > 0 && labirynth.getElement(heroRow, heroCol - 1).getType() != ElementType::Wall) {
-            std::swap(labirynth.getElement(heroRow, heroCol), labirynth.getElement(heroRow, heroCol - 1));
+            labirynth.moveElement(heroRow, heroCol, heroRow, heroCol - 1);
+            hero.setPosition(heroRow, heroCol - 1);
         }
         break;
     case 'S':
         if (heroRow < labirynth.getSize() - 1 && labirynth.getElement(heroRow + 1, heroCol).getType() != ElementType::Wall) {
-            std::swap(labirynth.getElement(heroRow, heroCol), labirynth.getElement(heroRow + 1, heroCol));
+            labirynth.moveElement(heroRow, heroCol, heroRow + 1, heroCol);
+            hero.setPosition(heroRow + 1, heroCol);
         }
         break;
     case 'D':
         if (heroCol < labirynth.getRowSize(heroRow) - 1 && labirynth.getElement(heroRow, heroCol + 1).getType() != ElementType::Wall) {
-            std::swap(labirynth.getElement(heroRow, heroCol), labirynth.getElement(heroRow, heroCol + 1));
+            labirynth.moveElement(heroRow, heroCol, heroRow, heroCol + 1);
+            hero.setPosition(heroRow, heroCol + 1);
         }
         break;
     default:
@@ -53,60 +43,18 @@ void Game::move(char direction) {
     }
 }
 
-void Game::generateMatrix() {
-    srand(static_cast<unsigned>(time(nullptr)));
-
-    for (int i = 0; i < labirynth.getSize(); ++i) {
-        for (int j = 0; j < labirynth.getRowSize(i); ++j) {
-            int randValue = rand() % 5;  // Random value from 0 to 4
-
-            if (randValue == 0) {
-                // Wall
-                labirynth.getElement(i, j) = GameElement();
-            }
-            else if (randValue == 1) {
-                // Passageway
-                labirynth.getElement(i, j) = GameElement();
-            }
-            else if (randValue == 2) {
-                // Potion
-                Item potion("Potion", 0, 0, 5);  // Assuming Item class has been defined
-                labirynth.getElement(i, j) = GameElement(potion);
-            }
-            else if (randValue == 3) {
-                // Trap
-                Trap trap("Trap", 10);  // Assuming Trap class has been defined
-                labirynth.getElement(i, j) = GameElement(trap);
-            }
-            else if (randValue == 4) {
-                // Monster
-                Monster monster("Monster", 30, 15, 5);  // Assuming Monster class has been defined
-                labirynth.getElement(i, j) = GameElement(monster);
-            }
-        }
-    }
-
-    // Place the hero at a random position
-    int heroRow = rand() % labirynth.getSize();
-    int heroCol = rand() % labirynth.getRowSize(heroRow);
-    labirynth.getElement(heroRow, heroCol) = GameElement(hero);
-}
-
 bool Game::isPathPossible() {
-    // Dijkstra algorithm implementation
     int size = labirynth.getSize();
-    int startRow = hero.getPosition().first;
-    int startCol = hero.getPosition().second;
+    pair<int, int> startPos = hero.getPosition();
+    vector<vector<int>> distance(size, vector<int>(size, numeric_limits<int>::max()));
+    distance[startPos.first][startPos.second] = 0;
 
-    std::vector<std::vector<int>> distance(size, std::vector<int>(size, std::numeric_limits<int>::max()));
-    distance[startRow][startCol] = 0;
-
-    auto compare = [](const std::pair<int, std::pair<int, int>>& lhs, const std::pair<int, std::pair<int, int>>& rhs) {
+    auto compare = [](const pair<int, pair<int, int>>& lhs, const pair<int, pair<int, int>>& rhs) {
         return lhs.first > rhs.first;
         };
 
-    std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, decltype(compare)> pq(compare);
-    pq.push({ 0, {startRow, startCol} });
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, decltype(compare)> pq(compare);
+    pq.push({ 0, startPos });
 
     while (!pq.empty()) {
         int currentDistance = pq.top().first;
@@ -114,7 +62,6 @@ bool Game::isPathPossible() {
         int currentCol = pq.top().second.second;
         pq.pop();
 
-        // Check neighbors (up, down, left, right)
         int dr[] = { -1, 1, 0, 0 };
         int dc[] = { 0, 0, -1, 1 };
 
@@ -123,7 +70,7 @@ bool Game::isPathPossible() {
             int newCol = currentCol + dc[i];
 
             if (newRow >= 0 && newRow < size && newCol >= 0 && newCol < size) {
-                int edgeWeight = labirynth.getElement(newRow, newCol).getWeight();  // Assuming GameElement has getWeight() method
+                int edgeWeight = labirynth.getElement(newRow, newCol).getWeight();
                 if (currentDistance + edgeWeight < distance[newRow][newCol]) {
                     distance[newRow][newCol] = currentDistance + edgeWeight;
                     pq.push({ distance[newRow][newCol], {newRow, newCol} });
@@ -132,9 +79,8 @@ bool Game::isPathPossible() {
         }
     }
 
-    // Check if there is a path to the exit (assuming exit is at the last row)
     for (int i = 0; i < size; ++i) {
-        if (distance[size - 1][i] != std::numeric_limits<int>::max()) {
+        if (distance[size - 1][i] != numeric_limits<int>::max()) {
             return true;
         }
     }

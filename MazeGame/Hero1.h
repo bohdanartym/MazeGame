@@ -1,33 +1,34 @@
-#pragma once
-#include "Armor1.h"
-#include "HealthBar1.h"
+#ifndef HERO_H
+#define HERO_H
+
+#include <string>
+#include <utility>
 
 class Hero {
 private:
     std::string name;
     int health;
-    int currentHealth;
     int damage;
-    std::vector<Item> items;
-    int armor;
-    int experience;
-    int level;
-    HealthBar healthBar;
+    char symbol;
+    std::pair<int, int> position;
 
 public:
-    Hero(const std::string& heroName, int baseHealth, int baseDamage);
+    // Constructors
+    Hero(const std::string& heroName, int heroHealth, int heroDamage);
+    Hero(int row, int col);
+
+    // Destructor
     ~Hero();
 
-    void gainExperience(int exp);
-    void giveDamage(Hero& enemy);
-    void displayHealthBar() const;
-    void takeDamage(int damageTaken);
-    void heal(int amount);
-    void levelUp();
-    void equipItem(const Item& newItem);
-    int calculateTotalDamageBoost() const;
-    void equipArmor(Armor& newArmor);
-    int calculateTotalArmorBoost() const;
-    void checkDeath() const;
-    std::string getName();
+    // Getter methods
+    std::string getName() const;
+    int getHealth() const;
+    int getDamage() const;
+    char getSymbol() const;
+    std::pair<int, int> getPosition() const;
+
+    // Setter method
+    void setPosition(int row, int col);
 };
+
+#endif // HERO_H
