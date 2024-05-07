@@ -8,7 +8,7 @@ Trap::Trap(const std::string& trapName, char trapSymbol, int trapDamage)
 }
 
 Trap::~Trap() {
-    std::cout << "Trap " << name << " has been triggered." << std::endl;
+    std::cout << "Trap " << name << " has been triggered..." << std::endl;
 }
 
 int Trap::getDamage() const {
